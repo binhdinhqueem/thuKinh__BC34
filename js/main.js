@@ -106,3 +106,19 @@ for (let i of dataGlasses) {
 }
 document.getElementById("vglassesList").innerHTML = content;
 
+let home = document.querySelectorAll(".btn-kinh");
+
+for (let i in dataGlasses) {
+  home[i].onclick = () => {
+    document.querySelector(".vglasses__info").style.display = "block";
+    document.getElementById(
+      "avatar"
+    ).innerHTML = `<img src="${dataGlasses[i].virtualImg}" alt="">`;
+    document.getElementById("glassesInfo").innerHTML = `
+        <h4>${dataGlasses[i].name} - ${dataGlasses[i].brand} (${dataGlasses[i].color})</h4> 
+        <div style="background-color: red; padding: 6px 10px; border-radius: 4px; display: inline-block;">$${dataGlasses[i].price}</div>
+        <span style="color: #009688;">Stocking</span>
+        <p style="margin-top: 10px;">${dataGlasses[i].description}</p>
+    `;
+  };
+}
